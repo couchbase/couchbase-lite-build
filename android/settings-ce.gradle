@@ -1,2 +1,2 @@
-include ':couchbase-lite-android:couchbase-lite-android'
+include ':couchbase-lite-android:lib'
 
