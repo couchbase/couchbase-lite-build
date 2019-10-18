@@ -1,12 +1,12 @@
-if (hasProperty("buildNumber") && hasProperty("automatedTests") && automatedTests.toBoolean()) {
-    // used only during CI automated testing
+if (!hasProperty("automatedTests") || !automatedTests.toBoolean()) {
+    // normal source build
+    include ':couchbase-lite-android-ee:lib'
+    include ':couchbase-lite-android:lib'
+} else {
+    // build the test application
     include ':couchbase-lite-android-ee:test'
     include ':couchbase-lite-android:test'
 }
-else {
-    // normal source development
-    include ':couchbase-lite-android-ee:lib'
-    include ':couchbase-lite-android:lib'
-}
+
 
 
